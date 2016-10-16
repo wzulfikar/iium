@@ -35,7 +35,7 @@ func main() {
 	strs := []string{
 		"[Q] [Quit](fg-red)",
 		"[R] [View Result](fg-white)",
-		"[C] [View Carry Mark](fg-white)",
+		"[C] [View Latest Carry Mark](fg-white)",
 	}
 
 	ls := termui.NewList()
@@ -60,7 +60,7 @@ func main() {
 
 	termui.Handle("/sys/kbd/c", func(termui.Event) {
 		fmt.Println("")
-		parse(s.GetCam())
+		parse(s.GetLatestCam())
 	})
 
 	termui.Loop()
