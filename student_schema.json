@@ -18,11 +18,82 @@
                     "range": 15
                 }
             ]
+        },
+        {
+            "code": "INFO1320",
+            "title": "Advance Database",
+            "cam": "15.8/30",
+            "assestments":[
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7.9,
+                    "range": 10
+                },
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7,
+                    "range": 15
+                }
+            ]
         }
     ],
     "results" : [
         {
             "session":"2015/2016:1",
+            "status": "PASS",
+            "gpa": 2.7,
+            "cgpa": 3.4,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2015/2016:2",
+            "status": "PASS",
+            "gpa": 2.7,
+            "cgpa": 3.4,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2015/2016:3",
+            "status": "PASS",
+            "gpa": 2.7,
+            "cgpa": 3.4,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2016/2017:1",
             "status": "PASS",
             "gpa": 2.7,
             "cgpa": 3.4,
