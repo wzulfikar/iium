@@ -1,0 +1,40 @@
+{
+    "matric" : "1222665",
+    "credit_hours_taken" : 128,
+    "latest_cam" : [
+        {
+            "code": "INFO1320",
+            "title": "Information Retrieval Technology",
+            "assestments":[
+                {
+                    "title": "Group Exerc 3",
+                    "mark": "7.9 / 10"
+                },
+                {
+                    "title": "Group Exerc 3",
+                    "mark": "7.9 / 10"
+                },
+            ]
+        }
+    ],
+    "results" : [
+        {
+            "session":"2015/2016:1",
+            "status": "PASS",
+            "gpa": 2.7,
+            "cgpa": 3.4,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        }
+    ]
+}
