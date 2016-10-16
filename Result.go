@@ -32,15 +32,14 @@ func main() {
 	// client := http.Client{Jar: jar}
 	client := http.Client{}
 
-	endPoint := "http://albiruni.iium.edu.my/myapps/StudentOnline/camResult1.php"
+	endPoint := "http://prereg.iium.edu.my/resslip/viewResult.php"
 
 	resp, err := client.PostForm(endPoint, url.Values{
 		"mat_no":   {"1222665"},
-		"pin":      {"Wzulfikar031"},
+		"pin_no":   {"Wzulfikar031"},
 		"sessi":    {"2015/2016"},
 		"semester": {"3"},
-		"login":    {"login"},
-		"action":   {"view"},
+		"login":    {"Login"},
 	})
 
 	if err != nil {
