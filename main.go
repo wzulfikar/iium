@@ -11,8 +11,10 @@ http://website.com/upser_profile_page .
 package main
 
 import (
+	"fmt"
+	"github.com/PuerkitoBio/goquery"
 	"github.com/wzulfikar/iium/student"
-	"log"
+	"strings"
 )
 
 func main() {
@@ -20,6 +22,19 @@ func main() {
 		"1222665",
 		"Wzulfikar031",
 	}
-	log.Println(s.GetResult())
-	log.Println(s.GetCam())
+	parse(s.GetResult())
+	// parse(s.GetCam())
+}
+
+// type Result struct {
+// 	course string
+// 	mark   string
+// }
+
+func parse(html string) {
+	doc, _ := goquery.NewDocumentFromReader(strings.NewReader(html))
+	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
+		txt := s.Text()
+		fmt.Println(txt)
+	})
 }
