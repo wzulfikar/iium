@@ -1,5 +1,7 @@
 # IIUM Results Visualizer
 
+> http://codepen.io/wzulfikar/pen/jrvVpa
+
 1. use offline by downloading cli program and provide json
 - use online by uploading json, providing url to json or login
 - dashboard contains stats of sessions passed and latest cam
@@ -10,6 +12,7 @@
 - provide setting for public json view or dashboard view
 - js using http://morrisjs.github.io/morris.js/
 - no need for db. all data stored in json. no password is not stored
+- using login is safe because we don't store your pass, and we use encrypted connection
 
 # cgpa calculator
 - insert current credit hours

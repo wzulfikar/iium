@@ -5,14 +5,17 @@
         {
             "code": "INFO1320",
             "title": "Information Retrieval Technology",
+            "cam": "15.8/20",
             "assestments":[
                 {
                     "title": "Group Exerc 3",
-                    "mark": "7.9 / 10"
+                    "point": 7.9,
+                    "range": 10
                 },
                 {
                     "title": "Group Exerc 3",
-                    "mark": "7.9 / 10"
+                    "point": 7,
+                    "range": 15
                 },
             ]
         }
