@@ -13,6 +13,7 @@ package main
 import (
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
+	"github.com/gizak/termui"
 	"github.com/wzulfikar/iium/student"
 	"strings"
 )
@@ -22,7 +23,47 @@ func main() {
 		"1222665",
 		"Wzulfikar031",
 	}
-	parse(s.GetResult())
+
+	err := termui.Init()
+	if err != nil {
+		panic(err)
+	}
+	defer termui.Close()
+
+	//termui.UseTheme("helloworld")
+
+	strs := []string{
+		"[Q] [Quit](fg-red)",
+		"[R] [View Result](fg-white)",
+		"[C] [View Carry Mark](fg-white)",
+	}
+
+	ls := termui.NewList()
+	ls.Items = strs
+	ls.ItemFgColor = termui.ColorYellow
+	ls.BorderLabel = "Menu"
+	ls.Height = 5
+	ls.Width = 25
+	ls.Y = 0
+
+	termui.Render(ls)
+
+	termui.Handle("/sys/kbd/q", func(termui.Event) {
+		fmt.Println("Closing the app...")
+		termui.StopLoop()
+	})
+
+	termui.Handle("/sys/kbd/r", func(termui.Event) {
+		fmt.Println("")
+		parse(s.GetResult())
+	})
+
+	termui.Handle("/sys/kbd/c", func(termui.Event) {
+		fmt.Println("")
+		parse(s.GetCam())
+	})
+
+	termui.Loop()
 	// parse(s.GetCam())
 }
 
