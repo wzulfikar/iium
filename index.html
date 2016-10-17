@@ -4,26 +4,195 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
+
 <div id="sessions_stats" style="height: 250px;"></div>
 
+<div class="text-center">
+    <ul id="pagination-sessions" class="pagination-sm"></ul>
+    <div id="session-content"></div>
+</div>
+
 <div id="latest_cam" style="height: 250px;"></div>
+<ul id="pagination-latest_cam" class="pagination-sm"></ul>
 
 <script type="text/javascript">
-var student = {};
+var student = {
+    "matric" : "1222665",
+    "credit_hours_taken" : 128,
+    "latest_cam" : [
+        {
+            "code": "INFO1320",
+            "title": "Information Retrieval Technology",
+            "cam": "15.8/20",
+            "assestments":[
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7.9,
+                    "range": 10
+                },
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7,
+                    "range": 15
+                }
+            ]
+        },
+        {
+            "code": "INFO1320",
+            "title": "Advance Database",
+            "cam": "15.8/30",
+            "assestments":[
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7.9,
+                    "range": 10
+                },
+                {
+                    "title": "Group Exerc 3",
+                    "point": 7,
+                    "range": 15
+                }
+            ]
+        }
+    ],
+    "results" : [
+        {
+            "session":"2015/2016:1",
+            "status": "PASS",
+            "gpa": 2.4,
+            "cgpa": 3.4,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2015/2016:2",
+            "status": "PASS",
+            "gpa": 2.1,
+            "cgpa": 3.0,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2015/2016:3",
+            "status": "PASS",
+            "gpa": 2.5,
+            "cgpa": 3.2,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                },
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        },
+        {
+            "session":"2016/2017:1",
+            "status": "PASS",
+            "gpa": 2.3,
+            "cgpa": 3.6,
+            "subjects": [
+                {
+                  "code": "INFO 1320",
+                  "title": "Information Retrieval Technology",
+                  "result": "B"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                },
+                {
+                  "code": "INFO 1402",
+                  "title": "Software Engineering",
+                  "result": "C"
+                }
+            ]
+        }
+    ]
+};
 
-$.getJSON("https://raw.githubusercontent.com/wzulfikar/iium/master/student_schema.json", function(data){
-  student = data;
-  console.log(student);
+// $.getJSON("https://raw.githubusercontent.com/wzulfikar/iium/master/student_schema.json", function(data){
+  // student = student || data;
+  // console.log(student);
 
   // var resultsData = [];
-  var resultsData = student.results;
-  //   _.map(student.results, function(data, key){ 
-  //       return {
-  //           "session": data.session,
-  //           "gpa": data.gpa,
-  //           "cgpa": data.cgpa
-  //       }; 
-  //   });
+  var resultsData = _.map(student.results, function(data, key){ 
+        data.session = data.session.replace(":", " Sem ");
+        data.subject_count = data.subjects.length;
+        return data;
+    });
+
+  $('#pagination-sessions').twbsPagination({
+    totalPages: resultsData.length,
+    visiblePages: resultsData.length,
+    nextClass: "hide",
+    prevClass: "hide",
+    firstClass: "hide",
+    lastClass: "hide",
+    onPageClick: function (event, i) {
+      $('#session-content').text('Your #' + i + " sem in IIUM.");
+    }
+  });
 
     new Morris.Line({
       // ID of the element in which to draw the chart.
@@ -32,13 +201,22 @@ $.getJSON("https://raw.githubusercontent.com/wzulfikar/iium/master/student_schem
       // the chart.
       // data: student.results,
       data: resultsData,
+      hoverCallback: function (index, options, content, row) {
+        $('#pagination-sessions .page-item')[index].click();
+        return content;
+      },
       // The name of the data record attribute that contains x-values.
       xkey: 'session',
+      parseTime: false,
+      // xLabelFormat: function (x,i) {
+      //   console.log();
+      //   return "a"; 
+      // },
       // A list of names of data record attributes that contain y-values.
-      ykeys: ['cgpa'],
+      ykeys: ['subject_count', 'gpa', 'cgpa'],
       // Labels for the ykeys -- will be displayed when you hover over the
       // chart.
-      labels: ['CGPA']
+      labels: ['Subjects Taken', 'GPA', 'CGPA']
     });
 
     new Morris.Bar({
@@ -61,5 +239,5 @@ $.getJSON("https://raw.githubusercontent.com/wzulfikar/iium/master/student_schem
       // chart.
       labels: ['Value']
     });
-})
+// })
 </script>
